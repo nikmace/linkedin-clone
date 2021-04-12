@@ -97,6 +97,22 @@ function ProfileFeed() {
             </Grid>
         </div>
         <Divider />
+        <div className={classes.root3}>
+            <Grid container>
+                <Grid item xs={1}></Grid>
+                <Grid item xs={9}>
+                    <Link to="/connections" className={classes.link1}>
+                        <Typography variant="body2" gutterBottom style={{color: '#333333'}}>
+                            Who viewed your profile
+                        </Typography>
+                    </Link>
+                </Grid>
+                <Grid item xs={2}>
+                    <span style={{fontSize: '.9rem'}}>87</span>
+                </Grid>
+            </Grid>
+        </div>
+        <Divider />
         <div className={classes.root2}>
             <Typography variant="overline" gutterBottom>
             Access exclusive tools & insights
