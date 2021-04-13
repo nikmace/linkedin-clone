@@ -91,20 +91,19 @@ const CreatePost = () => {
                 <Grid item xs={1}></Grid>
             </Grid>
             <Grid container spacing={4} className={classes.options}>
-                <Grid item xs={1}></Grid>
                 <Grid item xs={3} className={classes.iconText}>
                     <button className={classes.button2} onClick={() => console.log('Create post with Photo')}>
                         <FcStackOfPhotos className={classes.icon}/>
                         <Typography>Photo</Typography>
                     </button>
                 </Grid>
-                <Grid item xs={2} className={classes.iconText}>
+                <Grid item xs={3} className={classes.iconText}>
                     <button className={classes.button2} onClick={() => console.log('Create post with Video')}>
                         <FcClapperboard className={classes.icon}/>
                         <Typography>Video</Typography>
                     </button>
                 </Grid>
-                <Grid item xs={2} className={classes.iconText}>
+                <Grid item xs={3} className={classes.iconText}>
                     <button className={classes.button2} onClick={() => console.log('Create post with Event')}>
                         <FcCalendar className={classes.icon}/>
                         <Typography>Event</Typography>
@@ -113,7 +112,7 @@ const CreatePost = () => {
                 <Grid item xs={3} className={classes.iconText}>
                     <button className={classes.button2} onClick={() => console.log('Create post with Article')}>
                         <FcDocument className={classes.icon}/>
-                        <Typography>Write article</Typography>
+                        <Typography>Article</Typography>
                     </button>
                 </Grid>
             </Grid>

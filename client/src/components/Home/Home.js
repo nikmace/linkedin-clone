@@ -1,8 +1,9 @@
 import React from 'react';
 import {Grid, Paper, makeStyles} from '@material-ui/core';
 
-import ProfileFeed from './feed/ProfileFeed';
-import CreatePost from  './posts/create-post/CreatePost';
+import ProfileFeed from './Feed/ProfileFeed';
+import CreatePost from  './Posts/create-post/CreatePost';
+import FollowFeed from './Feed/follow-feed/FollowFeed';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -14,18 +15,25 @@ const useStyles = makeStyles((theme) => ({
     },
     profileFeed: {
         height: '470px',
+        borderRadius: '15px',
+        boxShadow: '0 5px 10px rgba(0,0,0,.1)',
     },
     createPost: {
         height: '120px',
+        borderRadius: '15px',
+        boxShadow: '0 5px 10px rgba(0,0,0,.1)',
     },
     followPeople: {
-        height: '315px',
+        height: '370px',
+        borderRadius: '15px',
+        boxShadow: '0 5px 10px rgba(0,0,0,.1)',
     },
     posts: {
         marginTop: '1rem',
     },
     postsPaper: {
         height: '800px',
+        borderRadius: '15px',
     }
 }));
 
@@ -49,7 +57,9 @@ const Home = () => {
                     </Grid>
                 </Grid>
                 <Grid item xs={2}>
-                    <Paper className={classes.followPeople}>Add to your Feed</Paper>
+                    <Paper className={classes.followPeople}>
+                        <FollowFeed />
+                    </Paper>
                 </Grid>
             </Grid>
         </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, IconButton, Typography, InputBase, Badge, MenuItem, Menu, Avatar } from '@material-ui/core';
 import {FaLinkedin} from 'react-icons/fa';
@@ -77,6 +78,10 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
     },
   },
+  link: {
+    textDecoration: 'none',
+    color: '#2867B2',
+  }
 }));
 
 export default function Navbar() {
@@ -126,14 +131,16 @@ export default function Navbar() {
     <div className={classes.grow}>
       <AppBar position="static" color="inherit">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-              <FaLinkedin />
-          </IconButton>
+          <Link to="/feed" className={classes.link}>   
+            <IconButton
+              edge="start"
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="open drawer"
+            >
+                <FaLinkedin />
+            </IconButton>
+          </Link>
           <Typography className={classes.title} variant="h6" noWrap>
             LinkedIn
           </Typography>

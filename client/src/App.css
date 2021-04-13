@@ -1,6 +1,17 @@
+:root {
+  --beige-color: #e9e5df;
+  --root-background: #fafaf9;
+  --root-blue: #0a66c2;
+  --root-cool-blue: #378fe9;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+body {
+  background-color:#fafaf9;
 }
 
