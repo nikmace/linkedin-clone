@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Avatar, Typography, Grid } from '@material-ui/core';
+import { Avatar, Typography, Grid, Snackbar } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert/Alert';
 import { FcClapperboard, FcStackOfPhotos, FcCalendar, FcDocument } from 'react-icons/fc';
 
 import CreatePostDialog from './CreatePostDialog';
@@ -72,6 +73,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CreatePost = () => {
     const [open, setOpen] = React.useState(false);
+    const [success, setSuccess] = React.useState(false);
     const classes = useStyles();
 
     const handleClickOpen = () => {
@@ -81,6 +83,10 @@ const CreatePost = () => {
     const handleClose = () => {
         setOpen(false);
     };
+
+    const handleCloseSnackbar = () => {
+        setSuccess(false);
+    }
 
     return (
         <>
@@ -101,7 +107,7 @@ const CreatePost = () => {
                 </Grid>
                 <Grid item xs={1}></Grid>
             </Grid>
-            <CreatePostDialog open={open} onClose={handleClose} handleClose={handleClose}/>
+            <CreatePostDialog open={open} onClose={handleClose} handleClose={handleClose} setSuccess={setSuccess}/>
             <Grid container spacing={4} className={classes.options}>
                 <Grid item xs={3} className={classes.iconText}>
                     <button className={classes.button2} onClick={() => console.log('Create post with Photo')}>
@@ -129,6 +135,11 @@ const CreatePost = () => {
                 </Grid>
             </Grid>
         </div>
+            <Snackbar open={success} autoHideDuration={5000} onClose={handleCloseSnackbar}>
+                <Alert onClose={handleCloseSnackbar} severity="success">
+                 Post created successfully!
+                </Alert>
+            </Snackbar>
         </>
     )
 }

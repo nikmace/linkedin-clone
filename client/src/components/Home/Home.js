@@ -4,6 +4,9 @@ import {Grid, Paper, makeStyles} from '@material-ui/core';
 import ProfileFeed from './Feed/ProfileFeed';
 import CreatePost from  './Posts/create-post/CreatePost';
 import FollowFeed from './Feed/follow-feed/FollowFeed';
+import PostFeed from './Posts/post-feed/PostFeed';
+
+import { getPosts } from '../../services/get-posts';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -29,16 +32,32 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: '0 5px 10px rgba(0,0,0,.1)',
     },
     posts: {
-        marginTop: '1rem',
+        marginTop: '2.5rem',
+        marginBottom: '2.5rem',
     },
-    postsPaper: {
-        height: '800px',
-        borderRadius: '15px',
-    }
+    
 }));
 
 const Home = () => {
     const classes = useStyles();
+
+    const [posts, setPosts] = React.useState();
+    const [success, setSuccess] = React.useState();
+
+    React.useEffect(() => {
+        async function getAllPosts() {
+            let posts = await getPosts();
+            if (posts) {
+                setPosts(posts.posts);
+                setSuccess(posts.success);
+            }      
+        }
+        
+        getAllPosts();
+    }, []);
+
+    console.log(posts)
+
     return (
         <div className={classes.root}>
             <Grid container spacing={5}>
@@ -53,7 +72,12 @@ const Home = () => {
                         <CreatePost />
                     </Paper>
                     <Grid item xs={12} className={classes.posts}>
-                        <Paper className={classes.postsPaper}>Posts</Paper>
+                        {posts && posts.map(post => {
+                            return (
+                                <PostFeed post={post} />
+                            )
+                        })}
+                        
                     </Grid>
                 </Grid>
                 <Grid item xs={2}>

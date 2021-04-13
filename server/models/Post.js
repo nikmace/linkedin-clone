@@ -21,12 +21,14 @@ const postSchema = mongoose.Schema({
         type: String,
         validate: /^https?/,
     },
-    creator: [
-        {
-            type: mongoose.Types.ObjectId,
-            ref: 'User',
-        }
-    ],
+    creator: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User',
+    },
+    createdAt: {
+        type: Date,
+        required: true,
+    }
 });
 
 module.exports = mongoose.model('Post', postSchema);

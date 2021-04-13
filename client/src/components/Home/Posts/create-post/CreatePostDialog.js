@@ -3,6 +3,7 @@ import { Button, TextField, Dialog, DialogActions, DialogContent, DialogContentT
 import { makeStyles } from '@material-ui/core/styles';
 
 import { createPost } from '../../../../services/create-post';
+import { getPosts } from '../../../../services/get-posts';
 
 const useStyles = makeStyles((theme) => ({
     text1: {
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function CreatePostDialog({ open, handleClose }) {
+export default function CreatePostDialog({ open, handleClose, setSuccess }) {
     const [description, setDescription] = React.useState('');
     const [imageUrl, setImageUrl] = React.useState('');
     const [disabled, setDisabled] = React.useState(true);
@@ -38,11 +39,15 @@ export default function CreatePostDialog({ open, handleClose }) {
         setImageUrl(e.target.value);
     };
 
-    const submitHandler = (e) => {
-        let creator = 'mdfu32-fjiui28j-kslmlfsd'
-        let success = createPost(description, imageUrl, creator);
+    const submitHandler = async () => {
+        let creator = '6075ad4a3b3147704b2bce5e'
+        let post = await createPost(description, imageUrl, creator);
+        setImageUrl('');
+        setDescription('');
+        setSuccess(true);
+        handleClose();
     }
-    
+
     React.useEffect(() => {
         setDisabled((description.length && imageUrl.length) < 1 ? true : false)
     }, [imageUrl, description])

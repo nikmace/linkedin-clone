@@ -12,6 +12,10 @@ const commentSchema = mongoose.Schema({
     },
     likesCount: {
         type: Number,
+    },
+    createdAt: {
+        type: Date,
+        required: true,
     }
 });
 
