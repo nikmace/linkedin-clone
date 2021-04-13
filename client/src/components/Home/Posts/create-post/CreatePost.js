@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Avatar, Typography, Grid } from '@material-ui/core';
 import { FcClapperboard, FcStackOfPhotos, FcCalendar, FcDocument } from 'react-icons/fc';
 
+import CreatePostDialog from './CreatePostDialog';
+
 const useStyles = makeStyles((theme) => ({
     root: {
         marginTop: '1rem',
@@ -69,7 +71,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CreatePost = () => {
-  const classes = useStyles();
+    const [open, setOpen] = React.useState(false);
+    const classes = useStyles();
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+    
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     return (
         <>
@@ -82,7 +93,7 @@ const CreatePost = () => {
                             <Avatar alt="Remy Sharp" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" className={classes.medium} />
                         </Grid>
                         <Grid item xs={10}>
-                            <button className={classes.button} onClick={() => console.log('Open Create Post')}>
+                            <button className={classes.button} onClick={handleClickOpen}>
                                 <span className={classes.span}>Start a post</span>
                             </button>
                         </Grid>
@@ -90,6 +101,7 @@ const CreatePost = () => {
                 </Grid>
                 <Grid item xs={1}></Grid>
             </Grid>
+            <CreatePostDialog open={open} onClose={handleClose} handleClose={handleClose}/>
             <Grid container spacing={4} className={classes.options}>
                 <Grid item xs={3} className={classes.iconText}>
                     <button className={classes.button2} onClick={() => console.log('Create post with Photo')}>

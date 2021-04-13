@@ -77,7 +77,7 @@ function ProfileFeed() {
                 Full-Stack Web Developer
             </Typography>
         </div>
-        <Divider />
+        <Divider variant="middle"/>
         <div className={classes.root3}>
             <Grid container>
                 <Grid item xs={1}></Grid>
@@ -96,7 +96,7 @@ function ProfileFeed() {
                 </Grid>
             </Grid>
         </div>
-        <Divider />
+        <Divider variant="middle"/>
         <div className={classes.root3}>
             <Grid container>
                 <Grid item xs={1}></Grid>
@@ -112,7 +112,7 @@ function ProfileFeed() {
                 </Grid>
             </Grid>
         </div>
-        <Divider />
+        <Divider variant="middle"/>
         <div className={classes.root2}>
             <Typography variant="overline" gutterBottom>
             Access exclusive tools & insights
@@ -121,7 +121,7 @@ function ProfileFeed() {
                 Try Premium free for 1 Month
             </Typography>
         </div>
-        <Divider />
+        <Divider variant="middle"/>
         <div className={classes.root4}>
             <Link to='/my-items' className={classes.link2}>
             <Grid container>

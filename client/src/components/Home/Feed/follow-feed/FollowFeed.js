@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         marginTop: '0rem',
         justifyContent: 'center',
-        alignItems: 'center', justifyContent: 'center',
+        alignItems: 'center',
         display: 'flex',
     },
     addToFeed: {
