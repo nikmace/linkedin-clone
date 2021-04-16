@@ -40,8 +40,8 @@ export default function CreatePostDialog({ open, handleClose, setSuccess }) {
     };
 
     const submitHandler = async () => {
-        let creator = '6075ad4a3b3147704b2bce5e'
-        let post = await createPost(description, imageUrl, creator);
+        let creator = '60767fbd7c253440f20b6b37'
+        await createPost(description, imageUrl, creator);
         setImageUrl('');
         setDescription('');
         setSuccess(true);

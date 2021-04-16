@@ -131,7 +131,7 @@ export default function Navbar() {
     <div className={classes.grow}>
       <AppBar position="static" color="inherit">
         <Toolbar>
-          <Link to="/feed" className={classes.link}>   
+          <Link to="/" className={classes.link}>   
             <IconButton
               edge="start"
               className={classes.menuButton}

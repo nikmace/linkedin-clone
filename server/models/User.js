@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 
 const userSchema = mongoose.Schema({
+    _id: {
+        type: mongoose.Schema.Types.ObjectId,
+    },
     name: {
         type: String,
         required: true
@@ -25,7 +28,7 @@ const userSchema = mongoose.Schema({
     },
     posts: [
         {
-            type: mongoose.Types.ObjectId,
+            type: mongoose.Schema.Types.ObjectId,
             ref: 'Post',
         }
     ],

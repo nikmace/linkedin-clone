@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
         flexWrap: 'wrap',
     },
     profileFeed: {
-        height: '470px',
+        height: '500px',
         borderRadius: '15px',
         boxShadow: '0 5px 10px rgba(0,0,0,.1)',
     },
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     
 }));
 
-const Home = () => {
+const Feed = () => {
     const classes = useStyles();
 
     const [posts, setPosts] = React.useState();
@@ -56,8 +56,6 @@ const Home = () => {
         getAllPosts();
     }, []);
 
-    console.log(posts)
-
     return (
         <div className={classes.root}>
             <Grid container spacing={5}>
@@ -74,7 +72,7 @@ const Home = () => {
                     <Grid item xs={12} className={classes.posts}>
                         {posts && posts.map(post => {
                             return (
-                                <PostFeed post={post} />
+                                <PostFeed post={post} key={post._id} creator={post.creator}/>
                             )
                         })}
                         
@@ -90,4 +88,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default Feed;

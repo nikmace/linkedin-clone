@@ -1,4 +1,5 @@
 const Post = require('../models/Post');
+const User = require('../models/User');
 
 async function createPost(data) {
     const obj = {
@@ -16,8 +17,8 @@ async function createPost(data) {
 }
 
 async function getPosts() {
-    const posts = await Post.find({}).lean();
-    
+    const posts = await Post.find({}).populate('User').lean();
+    console.log(posts)
     return posts;
 }
 

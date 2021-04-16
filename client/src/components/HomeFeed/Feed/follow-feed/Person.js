@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'flex-start',
+        marginLeft: '1rem',
     },
     buttonRoot2: {
         width: '98.75px',

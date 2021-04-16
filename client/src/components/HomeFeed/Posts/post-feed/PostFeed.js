@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     },
     info: {
         color: '#333333',
-        fontSize: '13px', //
+        fontSize: '13px',
     },
     root3: {
         justifyContent: 'center',
@@ -44,9 +44,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function PostFeed() {
+function PostFeed({ post: { description, imageUrl, createdAt, creator, likesCount, commentsCount, comments } }) {
     const classes = useStyles();
-
+    
+    console.log()
     return (
         <>
             <Paper className={classes.postsPaper}>
@@ -63,7 +64,7 @@ function PostFeed() {
                             </Typography>
                             <br />
                             <Typography variant="caption">
-                                18h
+                                {createdAt}
                             </Typography>
                         </Grid>
                     </Grid>
@@ -76,14 +77,14 @@ function PostFeed() {
                     <Grid item xs={1}></Grid>
                     <Grid item xs={10}>
                         <Typography variant="body1">
-                        Data are units of information, often numeric, that are collected through observation. In a more technical sense, data are a set of values of qualitative or quantitative variables about one or more persons or objects, while a datum (singular of data) is a single value of a single variable.
+                        {description ? description : 'No information available'}
                         </Typography>
                     </Grid>
                     <Grid item xs={1}></Grid>
                 </Grid>
                 <Grid container >
                     <Grid item xs={12}>
-                        <img src="https://images.ctfassets.net/u0haasspfa6q/2sMNoIuT9uGQjKd7UQ2SMQ/1bb98e383745b240920678ea2daa32e5/sell_landscape_photography_online" style={{width: '100%', height: '450px', objectFit: 'contain'}}/>
+                        <img src={imageUrl} style={{width: '100%', height: '450px', objectFit: 'contain'}}/>
                     </Grid>
                 </Grid>
             </Paper>

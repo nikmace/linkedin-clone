@@ -9,7 +9,7 @@ const postSchema = mongoose.Schema({
     },
     comments: [
         {
-            type: mongoose.Types.ObjectId,
+            type: mongoose.Schema.Types.ObjectId,
             ref: 'Comment',
         }
     ],
@@ -22,7 +22,7 @@ const postSchema = mongoose.Schema({
         validate: /^https?/,
     },
     creator: {
-        type: mongoose.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
     },
     createdAt: {
