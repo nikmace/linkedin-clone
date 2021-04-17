@@ -2,10 +2,10 @@ const { Router } = require('express');
 const router = Router();
 
 const PostController = require('../controller/PostController');
-const DummyController = require('../controller/DummyController');
+const AuthController = require('../controller/AuthController');
 const UserController = require('../controller/UserController');
 
-router.use('/', DummyController);
+router.use('/auth', AuthController);
 router.use('/post', PostController);
 router.use('/user', UserController);
 

@@ -5,7 +5,7 @@ function validateInputs({ email, profileImage }, setErrors) {
     if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)) {
         errors.email = 'Incorrect email!';
     }
-    if (!/^https:$/.test(profileImage)) {
+    if (!profileImage.includes('http')) {
         errors.profileImage = 'Profile image must be in the following format: "https:"';
     }
 

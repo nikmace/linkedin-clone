@@ -9,6 +9,8 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { FaLinkedin } from 'react-icons/fa';
 
+import { isAuthenticated } from '../../services/auth/is-authenticated';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -32,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function HomeBar() {
+function HomeBar({user}) {
     const classes = useStyles();
 
     return (
@@ -55,12 +57,22 @@ function HomeBar() {
             <Link to="/feed" className={classes.link2}>
                 <Button className={classes.button}>Feed</Button>
             </Link>
-            <Link to="/signup" className={classes.link2}>
-                <Button className={classes.button}>Signup</Button> 
-            </Link>
-            <Link to="/login" className={classes.link2}>
-                <Button className={classes.button}>Login</Button>
-            </Link>
+            {user && user ? (
+              <>
+              <Link to="/logout" className={classes.link2}>
+                  <Button className={classes.button}>Logout</Button>
+              </Link>
+              </>
+            ) : (
+              <>
+              <Link to="/signup" className={classes.link2}>
+                  <Button className={classes.button}>Signup</Button> 
+              </Link>
+              <Link to="/login" className={classes.link2}>
+                  <Button className={classes.button}>Login</Button>
+              </Link>
+              </>
+            )}
             </Toolbar>
         </AppBar>
         </div>

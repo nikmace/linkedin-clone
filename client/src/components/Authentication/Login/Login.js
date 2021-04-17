@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Paper, makeStyles, Typography, Avatar, TextField, Button } from '@material-ui/core';
 
+import { loginUser } from '../../../services/auth/login-user';
+
 const useStyles = makeStyles((theme) => ({
     root: {
         marginTop: '5rem',
@@ -15,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
     },
     text1: {
         width: '100%',
-        marginBottom: '1rem'
+        marginBottom: '1rem',
+        marginTop: '.3rem',
     },
     text2: {
         width: '100%',
@@ -40,6 +43,28 @@ const useStyles = makeStyles((theme) => ({
 
 function Signup() {
     const classes = useStyles();
+    const [disabled, setDisabled] = React.useState(true);
+    const [input, setInput] = React.useState({
+        username: '',
+        password: '',
+    });
+
+    const handleChange = (e) => {
+        e.preventDefault();
+        setInput({
+            ...input,
+            [e.target.name]: e.target.value
+        });
+    }
+
+    const submitHandler = async () => {
+        const data = await loginUser(input);
+        console.log(data);
+    }
+
+    React.useEffect(() => {
+        setDisabled((input.username.length && input.password.length) < 1 ? true : false)
+    }, [input]);
 
     return (
         <>
@@ -56,9 +81,11 @@ function Signup() {
                                     Username
                                 </Typography>
                                 <TextField
-                                id="outlined-multiline-static"
                                 label="Enter your username"
                                 variant="outlined"
+                                name='username'
+                                value={input?.username}
+                                onChange={handleChange}
                                 className={classes.text1}
                                 />
                             </Grid>
@@ -73,9 +100,11 @@ function Signup() {
                                 </Typography>
                                 <TextField
                                 type="password"
-                                id="outlined-multiline-static"
                                 label="Enter your password"
                                 variant="outlined"
+                                name='password'
+                                value={input?.password}
+                                onChange={handleChange}
                                 className={classes.text1}
                                 />
                             </Grid>
@@ -97,7 +126,7 @@ function Signup() {
                                         Back
                                     </Button>
                                 </Link>
-                            <Button  className={classes.button} disabled>
+                            <Button  className={classes.button} disabled={disabled} onClick={submitHandler}>
                                 Login
                             </Button>
                             </Grid>

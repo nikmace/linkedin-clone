@@ -79,7 +79,7 @@ function Signup() {
         let areValid = await validateInputs(input, setErrors);
         if(areValid) {
             const data = await createUser(input);
-            
+
             setSuccess(data.success);
             setServerError(data.errors);
             setOpenSnackbar(true);
@@ -189,14 +189,14 @@ function Signup() {
                         </Grid>
                         <Grid container spacing={3}>
                             <Grid item xs={1}></Grid>
-                            <Grid item xs={7}>
+                            <Grid item xs={6}>
                                 <Typography variant="subtitle1">
                                     Have an account? 
                                     <Link to="/login" className={classes.link}>Login</Link>
                                 </Typography>
 
                             </Grid>
-                            <Grid item xs={4}>
+                            <Grid item xs={5}>
                                 <Link to="/" className={classes.link}>
                                     <Button  className={classes.button}>
                                         Back
@@ -215,7 +215,7 @@ function Signup() {
                 <Snackbar open={openSnackbar} autoHideDuration={5000} onClose={handleCloseSnackbar}>
                         <Alert onClose={handleCloseSnackbar} severity="success">
                             <AlertTitle>Success</AlertTitle>
-                            User created successfully!
+                            User created successfully! Please login.
                         </Alert>
                 </Snackbar>
             )}

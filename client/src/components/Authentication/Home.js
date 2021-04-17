@@ -5,7 +5,7 @@ import { IoIosArrowForward } from 'react-icons/io';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        marginTop: '6rem',
+        marginTop: '10rem',
         height: '600px',
     },
     root2: {
@@ -44,8 +44,8 @@ function Home() {
     return (
         <>
             <Grid container spacing={2} className={classes.root}>
-                <Grid item xs={1}></Grid>
-                <Grid item xs={4} className={classes.root2}>
+                <Grid item xs={1} md={1} lg={2}></Grid>
+                <Grid item xs={4} md={3} lg={4} className={classes.root2}>
                     <Grid item xs={9}>
                         <Typography variant='h2' className={classes.title}>Welcome to the community of specialists!</Typography>
                     </Grid>
@@ -76,10 +76,10 @@ function Home() {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid item xs={5}>
+                <Grid item xs={5} md={6} lg={4}>
                     <Avatar className={classes.avatar} src="https://blog.alexa.com/wp-content/uploads/2020/08/CM-content-tactics.png"/>
                 </Grid>
-                <Grid item xs={2}></Grid>
+                <Grid item xs={2} md={2} lg={2}></Grid>
             </Grid>
         </>
     )
